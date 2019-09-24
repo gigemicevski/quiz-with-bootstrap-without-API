@@ -1,5 +1,6 @@
 var correctAnswers = ["A","B","C","B"];
 var form = document.querySelector(".quiz-form");
+var result = document.querySelector(".result");
 
 form.addEventListener("submit", e => {
     e.preventDefault();
@@ -9,9 +10,13 @@ form.addEventListener("submit", e => {
 
     userAnswers.forEach((answer,index)=>{
         if (answer===correctAnswers[index]){
-            score+=10;
+            score+=25;
 
         }
     });
-    console.log(score);
+    result.querySelector("span").textContent = (score + "%");
+    result.classList.remove('d-none');
+    
 })
+
+
